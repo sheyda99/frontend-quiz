@@ -12,6 +12,7 @@ main {
 }
 
 .card {
+    margin: 0 20px;
     width: 800px;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 5px;
@@ -48,6 +49,12 @@ main {
 #buttons > div:hover,
 #buttons a:hover {
     box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 15px;
+}
+@media (max-width: 576px) {
+    #buttons > div,
+    #buttons a {
+        width: 100%;
+    }
 }
 
 .card-footer {
