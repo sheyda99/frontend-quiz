@@ -28,42 +28,47 @@ function readTextFile(file, callback) {
     }
     rawFile.send(null);
 }
-
 readTextFile("../questions.json", function(text){
     var questions = JSON.parse(text);
-    var quiz = new Quiz(questions);
-
-    loadQuestion();
-
-    function loadQuestion() {
-        if (quiz.isFinish()) {
-            showScore();
-        } else {
-            var question = quiz.getQuestion();
-            var choices = question.choices;
-
-            document.querySelector("#question").textContent = question.question;
-
-            for (var i = 0; i < choices.length; i++) {
-                var element = document.querySelector("#choice-" + i);
-                element.textContent = choices[i];
-                guess("#btn-" + i, choices[i]);
-            }
-
-            showProgress();
+    for (var i = 0; i < questions.length; i++) {
+        if (questions[i].quizName === document.querySelector("main").id) {
+            var quiz = new Quiz(questions[i].questions);
         }
     }
 
-    function guess(id, guess) {
-        document.querySelector(id).onclick = function() {
-            quiz.guess(guess);
-            loadQuestion();
-        }
-    }
-    function showProgress() {
-        document.querySelector("#progress").innerHTML = `Question ${quiz.questionIndex+1} of ${quiz.questions.length}`;
-    }
-    function showScore() {
-        document.querySelector(".card").innerHTML = `<div class="card-body"><h2 id="score">Score: ${quiz.score}</h2></div>`;
-    }
+    loadQuestion(quiz);
 });
+
+
+function loadQuestion(quiz) {
+    if (quiz.isFinish()) {
+        showScore(quiz);
+    } else {
+        var question = quiz.getQuestion();
+        var choices = question.choices;
+        document.querySelector("#question").innerHTML = question.question;
+        for (var i = 0; i < choices.length; i++) {
+            var element = document.querySelector("#choice-" + i);
+            element.textContent = choices[i];
+            guess(quiz, "#btn-" + i, choices[i]);
+        }
+        showProgress(quiz);
+    }
+}
+function guess(quiz, id, guess) {
+    document.querySelector(id).onclick = function() {
+        quiz.guess(guess);
+        loadQuestion(quiz);
+    }
+}
+function showProgress(quiz) {
+    document.querySelector("#progress").innerHTML = `Question ${quiz.questionIndex+1} of ${quiz.questions.length}`;
+}
+function showScore(quiz) {
+    document.querySelector(".card").innerHTML = `<div class="card-body">
+                                                    <h2 id="score">Score: ${quiz.score}</h2>
+                                                    <div id="buttons">
+                                                        <a href="/">Go to Homepage</a>
+                                                    </div>
+                                                </div>`;
+}

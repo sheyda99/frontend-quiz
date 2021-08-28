@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Quiz | Front-end</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body {
+            height: 100vh;
+            background: url("assets/img/bg.jpg") no-repeat center;
+            background-size: cover;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <main id="css">
+        <div class="card">
+            <div class="card-body">
+                <h2 id="question"></h2>
+                <div id="buttons">
+                    <div id="btn-0">
+                        <span id="choice-0"></span>
+                    </div>
+                    <div id="btn-1">
+                        <span id="choice-1"></span>
+                    </div>
+                    <div id="btn-2">
+                        <span id="choice-2"></span>
+                    </div>
+                    <div id="btn-3">
+                        <span id="choice-3"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="progress" class="card-footer"></div>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
