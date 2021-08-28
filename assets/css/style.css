@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 800px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 15px;
+}
+.card h2 {
+    margin-bottom: 50px;
+    font-size: 32px;
+}
+
+.card-body {
+    padding: 50px 20px;
+}
+#score {
+    font-size: 50px;
+    margin: 0;
+}
+
+#buttons > div {
+    margin: 10px auto;
+    padding: 10px;
+    width: 50%;
+    background-color: #fff;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+}
+#buttons > div:hover {
+    box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 15px;
+}
+
+.card-footer {
+    padding: 15px 0;
+}
